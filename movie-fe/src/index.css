@@ -1,0 +1,29 @@
+/* import Tailwind’s base styles (preflight and sensible defaults) */
+@tailwind base;
+/* import Tailwind’s component classes (if used) */
+@tailwind components;
+/* import Tailwind’s utility classes (our main workhorse) */
+@tailwind utilities;
+
+/* set a neutral page background in light mode */
+:root {
+  /* CSS custom property for a soft light background */
+  --bg: 247 247 247;
+}
+
+/* ensure full-height layout for smoother backgrounds */
+html, body, #root {
+  height: 100%;
+}
+
+/* apply the background and crisp text rendering */
+body {
+  /* use the light background and anti-aliased text */
+  @apply bg-[rgb(var(--bg))] text-gray-900 antialiased;
+}
+
+/* in dark mode, override page-level colors via the .dark class on <html> */
+html.dark body {
+  /* use Tailwind utilities for dark canvas + light text */
+  @apply bg-neutral-950 text-neutral-100;
+}
